@@ -5,3 +5,5 @@ abc //true
 
 (() //false
 10^100*log_10[n)/log_10(2) //false
+
+(1+2))+3*x //false
