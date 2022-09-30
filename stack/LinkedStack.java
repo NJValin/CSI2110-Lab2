@@ -22,7 +22,6 @@ public class LinkedStack<E> implements Stack<E> {
     /**
      * Creates a node with the given element and next node.
      */
-
     public Node(E e, Node<E> n) {
       element = e;
       next = n;
@@ -78,6 +77,9 @@ public class LinkedStack<E> implements Stack<E> {
    */
   public void push(E element) {
     // this is a dummy method now; it needs to be implemented <<<<<<<<<<<<<<<
+    Node<E> newNode = new Node<>(element, head);
+    head = newNode;
+    size++;
   }
 
   /**
@@ -86,7 +88,7 @@ public class LinkedStack<E> implements Stack<E> {
    * @return top element in the stack (or null if empty)
    */
   public E top() {
-    return null; // this is a dummy method now; it needs to be implemented <<<<<<<<<<<<<<<
+    return head.element; // this is a dummy method now; it needs to be implemented <<<<<<<<<<<<<<<
   }
 
   /**
@@ -95,7 +97,16 @@ public class LinkedStack<E> implements Stack<E> {
    * @return element removed (or null if empty)
    */
   public E pop() {
-    return null; // this is a dummy method now; it needs to be implemented <<<<<<<<<<<<<<<
+    if (head == null) {
+       return null;
+    }
+    Node<E> temp = head;
+    E result = temp.element;
+    head = head.next;
+    temp.next = null;
+    System.gc();
+    size--;
+    return result; // this is a dummy method now; it needs to be implemented <<<<<<<<<<<<<<<
   }
 
   /**
